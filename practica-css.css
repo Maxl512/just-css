@@ -14,6 +14,335 @@ DESCENDIENTE = " element descendent
 
 PSEUDO-CLASES = " element:pseudo-class "
 
+*/
+
+/* 
+
+EN CSS HAY UNA METODOLOGIA LLAMADA BEM QUE NOS PERMITE SABER
+QUE ELEMENTO ESTAMOS ELIJIENDO SEGUN SU CLASE
+
+PRIMERO ESPECIFICAMOS EL VALOR DE LA CLASE DEL CONTENEDOR
+
+" class="property-container"  "
+
+SI QUEREMOS IDENTIFICAR A UN DESCENDIENTE DEL CONTENEDOR
+COLOCAMOS LA CLASE DE CONTENEDOR + __ + EL TIPO DE ELEMENTO DEL DESCENDIENTE
+
+" class="property-container__element "
+
+AHORA SI DENTRO DEL ELEMENTO HAY OTRO ELEMENTO, COPIAMOS LA MISMA CLASES
++ - + TIPO DE ELEMENTO DEL QUE ESTA ADENTRO
+
+" class="property-container__element-element "
+
+SI QUEREMOS DECIR Q UN ELEMENTO ES DIFERENTE A LOS DEMAS PODEMOS HACERLO
+HACIENDO LO MISMO QUE ARRIBA + -- + ALG QUE DIGA PQ ES DIFERENTE
+
+" class="property-container__element-element--active "
+" class="property-container__element-element "
+" class="property-container__element-element "
+
+TODO JUNTO SERIA ALGO ASI
+
+<div class="paragraph-container">
+    <h2 class="paragraph-container__h2">Titulo</h2>
+    <p class="paragraph-container__p"><span class="paragraph-container__p-span">sdaj</span>kjsdasdjajhsdkasdjka</p>
+    <p class="paragraph-container__p--second">sdajkjsdasdjajhsdkasdjka</p>
+</div>
+
+*/
+
+/* UNIDADES DE MEDIDAS
+
+EXISTEN DOS TIPOS DE MEDIDAD EN CSS
+
+LAS FIJAS Y LAS RELATIVAS
+
+LAS FIJAS: NO DEPENDEN DE NADA Y SU VALOR ES FIJO
+
+PX:PIXELS
+PT:POINTS
+CM:CENTIMETERS
+MM:MILIMETERS
+
+LAS RELATIVAS: DEPENDEN DE LA MEDIDA DEL CONTENEDOR
+
+REM
+EM: POR DEFECTO 1 EM ES IGUAL A 16PX
+
+
+TAMBIEN TENEMOS A VH: VIEWPORT HEIGHT Y VW:VIEWPORT WITH
+
+ESTOS DEPENDEN DEL TAMAÑO DE LA PANTALLA
+
+50VW: SERIA IGUAL A LA MITAD DE LA PANTALLA
+
+LA ESCALA DE VH Y VW ES ENTRE 0 Y 100 
+
+*/
+
+/* TIPOGRAFIAS */
+
+*{
+    font-family: 'Dancing Script', cursive;
+    /* Font-family: es el tipo de letra, podemos descargar nuevas fuentes
+    para nuestras textos, buscando https://fonts.google.com/, elegimos el que 
+    nos parezca mejor, y lo instalamos en el head usando el la url que 
+    copiaremos, luego colocamos el nombre de la fuente en font-family
+    */
+}
+.container__form{
+    font-size: 25px;
+}
+.container__form-h3{
+    font-size: 2.5em;
+    /* Font-size: nos permite cambiar el tamaño de la letra */
+    line-height: 1.5;
+    /* line-height: nos permite decidir que tan altas sera el contenedor de
+    las letras */
+    font-weight: 1000;
+    /* font-weight: nos permmite decidir que tan gruesas seran las letras */
+    color: red;
+    /* color: nos permite decidir de que color sera el texto */
+   
+}
+
+/* NORMALIZE
+
+EL NORMALIZE SON LOS VALORES POR DEFECTO Q LOS NAVEGADORES PUEDEN OFRECERNOS
+https://necolas.github.io/normalize.css/, lo descargamos, al guardar la pagina
+en la carpeta y luego la instalamos en el sitio con la etiqueta link
+
+buscamos img y le agregamos max-width:100%;
+
+luego en el principio copiamos un selector universal y le ponemos lapropiedad
+box-sizing:border-box;
+padding:0;
+margin:0;
+
+*/
+
+/* Box Model */
+
+/* 
+En html hay dos tipos de cajas 
+las que son en linea, y las que son de bloques.
+
+Bloques:las que son de bloques son las mas importantes, 
+estas se ajustan al ancho del contenedor
+
+En linea: solo usan el tamaño del contenido de la caja
+A los elementos en linea no se le pueden dar ni height ni width
+
+*/
+.container__h2{
+    display: inline-block;
+    /* Con la propiedad display, modificamos el comportamiento de las cajas
+    inline-block nos permite establecer una caja como en linea */
+    font-size: 1.8em;
+}
+
+/* Propiedades de caja */
+
+.container{
+    background-color: royalblue ;
+    /* background-color nos permite cambiarle el color al fondo de la caja */
+    font-size: 20px;
+}
+
+.container__p{
+    padding: 1.5em 1em 0.8em 2em ;
+    /* padding, es la distancia que hay entre la caja y el texto o elemento 
+    el orden de los valores modifican segun las agujas del reloj
+    top right bottom left
+    tambien podemos hacer
+    1em 2em  1em
+    top  X  bottom
+    o
+    1.5em  1em
+      Y     X
+    o
+    2em
+    XY
+    */
+    background-color: saddlebrown;
+    width: 20em;
+    /* width: nos permite establecer la anchura del elemento */
+    height: 12em;
+    /* height: nos permite establecer la altura del elemento */
+    box-sizing: border-box;
+    /* box-sizing, nos permite decidir como se medira las cajas, 
+    content-box
+    hace que al tamaño establecido con el width y height se le sumen el
+    padding, margin y el border, esta caja tendria  7.5em arriba, 21em 
+    en la derecha, 6.8em abajo y 22em a la izquierda
+    border-box
+    hace que el tamaño de la caja sea solo lo que se define en el width y 
+    height, los demas se coloca dentro y le resta al width y height
+    */
+    text-align: right;
+    /* text-align, nos permite decidir en que posicion se colocara el 
+    texto dentro de la caja */
+    margin: 2em 1.5em ;
+    /* margin: nos permite decidir que distancia hay entre una caja y otra */
+    border-radius: 0em 4em 1em 0em;
+    /* border-radius: nos agregarle bordes circulares a la caja, se modifica
+    corner left top, corner right top, corner right bottom, corner left bottom
+    */
+    border: .6em inset rebeccapurple ;
+    /* nos permite establecer las caracteristicas de los bordes de la caja*/
+    /* hay varios tipos de bordes
+    solid: un borde normal solido
+    dashed: un borde hecho con pequeñas rectagunlos
+    double: un borde doble
+    groove: un borde doble que intercala colores, con uno mas oscuro del 
+    elegido
+    inset: un borde que se divide diagonalmente, uno oscuro arriba
+    y el color original abajo
+    outset: es lo mismo q inset pero los colores van al reves
+    ridge: lo mismo q groove pero lso colores invertidos
+    */
+    box-shadow: .35em .16em .3em 0 rgb(10, 61, 14);
+    /* Box shadow nos permite darle sombras a la caja 
+    el orden es
+    X  Y  nitidez border(0 siempre) color
+    */
+    text-shadow: .1em .02em .05em  grey;
+    /* text shadow, nos permite modifciar la sombra del texto
+    sigue el mismo orden q box shadow
+    */
+    transform: rotate(10deg) ;
+    /* transform nos permite modificar como se vera la caja, o en que eje se 
+    colocara tiene varias funciones
+    rotate, nos permite rotar la caja segun los grados q indiquemos
+    */
+    outline: 1px solid black;
+    /* outline
+    es una propiedad que genera un borde que no 
+    afecta a ninguna caja, ya que no ocupa un espacio
+    es como un resaltador
+    basicamente nos muestra el tamaño de la caja   
+    */
+}
+
+/* POSITION 
+nos permite posicionar los elemento, es decir adquiere nuevas propiedades
+las cuales nos permiten hacer nuevas cosas
+
+cuando un elemento esta posicionado depende de la forma de posicionarse
+es que afectara el flujo de orden
+
+el flujo de orden es el orden en que ponemos los elementos
+
+hay diferentes valores para la propiedad position
+static: valor por defecto
+relative: sigue conservando el espacio reservado, adquiere la propiedad
+z-index  
+
+zindex es una propiedad q nmos permite hacer q 
+un elemento este por encima del otro, en el eje z
+solofunciona cuando la caja esta posicionada
+por defecto el valor es 0
+cuando se le asigna esta propiedad a una caja q esta despues de la otra
+se pone encima pq le da la gana
+si queremos hacer q uno se vea mas arriba q el otro lo ecomendable
+es intercarlar 10 espacios
+
+zindex tiene un probelma entre padres e hijos
+un padre no se puede poner por encima de un hijo
+
+la unica forma es darle a la propiedad zindex del hijo
+un valor de -1
+
+y el zindex del padre no debe estar definido
+pero el padre si debe estar posicionado
+
+absolute: es igual q position relativa solo q hay dso cosas q cambian
+
+primero, el espacio deja de estar reservado, es decir esta vacio
+
+segundo, las propiedades de posicion com top bottom right y left
+dependen del viewport
+
+para que dependan del contenedor, este tiene q estar posicionado
+
+tercero, aunque sea un elementobloque, el ancho se ajusta al contenido
+de la caja
+
+el viewport es la pantalla de la pagina web
+
+fixed: es igual q absolute, solo que la caja queda fijada
+no ocupa espacio en pantalla, e igualmente tiene las propiedades
+top left right y bottom que dependen del viewport
+y no se mueve 
+
+
+sticky:es una mezcla entre relative y fixed, ya que mantiene el espacio 
+reservado y cuando llega al lugar donde le indicamos la posicion, se manteine
+fijo
+
+cuando posicionamos un elemento adquiere 4 propiedades nuevas
+
+top: el valor le decimo q se mueva hacia abajo- importante
+right el valor le decimo q se mueva hacia izquierda
+left el valor le decimo q se mueva hacia derecha- importante
+bottom el valor le decimo q se mueva hacia arriba
 
 
 */
+.position-container{
+    position: relative;
+    width: 80vw;
+    height: 600px;
+    background-color: black;
+    margin: 5em auto;
+    font-size: 16px;
+    outline: 5px solid red;
+}
+.position-container__div--one{
+    width: 30vw;
+    height: 5cm;
+    background-color: red;
+    position: relative;
+    left: 0;
+    font-size: 3em;
+}
+.position-container__div--two{
+    width: 30vw;
+    height: 5cm;
+    background-color: blue;
+    position: absolute;
+    font-size: 3em;
+    right: 0;
+    top: 0;
+}
+.position-container__div--three{
+    width: 30vw;
+    height: 5cm;
+    background-color: yellow;
+    font-size: 3em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.position-container__div--four{
+    width: 30vw;
+    height: 5cm;
+    background-color: green;
+    font-size: 3em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.position-container__div--five{
+    margin-top: 3em;
+    width: 100vw;
+    height: 5cm;
+    background-color: green;
+    font-size: 3em;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+
