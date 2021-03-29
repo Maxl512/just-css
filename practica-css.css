@@ -472,23 +472,194 @@ tenemos estos pseudo elementos
 
 ::first-line: no funciona en inline, nos modifica la primera linea de 
 texto
+::first-letter:no funciona en inline, modifica la primera letra del texto
+::placeholder: nos permite modificar como se ve el placeholder de los inputs
+::selection: nos permite modificar como se vera un texto cuando lo 
+seleccionamos
 
-::first-letter:
-::placeholder:
-::after:
-::before:
-::selection:
+son hijos del elemento al q se aplica
+::after: after crea un hijo
+visual despues del element al q le aplicamos
+::before: lo mismo q after pero antes
+
+pero estos no existen en el dom.
 */
 
-.pseudo-classes-container{
+.pseudo-elements-container{
     background-color: saddlebrown;
     margin: 1cm;
     padding: .5cm;
 }
-.pseudo-classes-container__p::first-line{
+.pseudo-elements-container__p--one::selection{
+    color: darkred;
+    background-color: darkslategray;
+}
+.pseudo-elements-container__p--one::first-line{
     color: white;
     font-size: 2em;
 }
-.pseudo-classes-container__p::first-letter{
+.pseudo-elements-container__p--one::first-letter{
     font-size: 2.5em;
 }
+.pseudo-elements-container__input{
+    margin: 1cm;
+    border: .5cm solid purple;
+    font-size: 2em;
+    padding:2em;
+}
+.pseudo-elements-container__input::placeholder{
+    color: green;
+    opacity: .5;
+    font-size: 1.5em;
+    text-align: center;
+}
+.pseudo-elements-container__p--two::before{
+    content: "X";
+    font-size: 5em;
+    color: white;
+}
+.pseudo-elements-container__p--two::after{
+    content: "XI";
+    font-size: 2em;
+    color: white;
+}
+
+
+/* PSEUDO-CLASES */
+
+/* las pseudo clases modifican al elemento segun una accion determinada 
+q el usuario puede hacer 
+
+tenemos las siguietnes pseudo-clases
+
+:hover: modifica el elemento cuando el mouse esta encima
+:link: modifica un link q no hemos visitado
+:visited: modifica un link q ya hemos visitado
+:active: modifica un el elemento cuando lo estamos apretando
+:focus: se aplica mas a los inputs, se modifica cuando lo seleccionamos
+:lang: modifica el elemento si este tiene el mismo lenguaje
+
+
+*/
+.pseudo-classes-container{
+    background-color: red;
+    padding: 2cm;
+    height: 15cm;
+}
+.pseudo-classes-container a{
+    font-size: 2em;
+    background-color: darkslategrey;
+    padding:1cm;
+    display: inline-block;
+    margin: 1cm;
+    text-decoration: none;
+}
+
+.pseudo-classes-container a:hover{
+    background-color: firebrick;
+    color: darkslategrey;
+}
+
+.pseudo-classes-container a:link{
+    background-color: darkslategrey;
+    color: white;
+}
+.pseudo-classes-container a:visited{
+    color: black;
+}
+.pseudo-classes-container a:active{
+    color: pink;
+}
+.pseudo-classes-container__input{
+    border: .5em solid black;
+    background-color: orange;
+}
+.pseudo-classes-container__input:focus{
+    border: .5em solid orange;
+    background-color: black;
+    outline:5px inset blue;
+}
+.pseudo-classes-container__p b:lang(en){
+    color: white;
+    font-size: 2em;
+}
+.pseudo-classes-container__p b:lang(es){
+    color: blue;
+    font-size: 2em;
+}
+
+/* OBJECT fill */
+
+/* object fit tiene varias propiedades 
+
+contain:  hace q la resolucion de la imagen se ajuste bien
+
+cover: hara que la imagen abarque toda la resolucion q queremos, pero
+sin distorsionar su calidad, basicamente se ajusta al contenedor y recorta
+los demass bordes, hace zoom en si misma
+
+none: manda la imagen segun su verdadera resolucion, muestra solo lo que puede
+mostrar
+
+scale-down: se queda con la mejor propiedad
+se queda con el mas chiquito entre contain y none
+
+*/
+
+/* Object position
+
+left, right, center, top, bottom y none
+
+*/
+
+.object-fill-container{
+    background-color: pink;
+    padding: 2cm;
+    width: 80vw;
+    height: 600px;
+}
+.object-fill-container__img{
+    height: 100%;
+    width: 100%;
+    border: 5px solid white;
+    object-fit: cover;
+    object-position: top ;
+}
+
+/* CURSOR */
+/*
+ cambia el cursor cuando esta encima del elemento
+
+pointer: hace el efecto del cursors cuando puedes apretar algo
+
+row-resize: hace ver como si pueder modificar el tamaño de algo
+
+progress: hace ver como si algo estuviera cargando
+
+wai: lo mismo q progress pero solo muestra el circulo cargadno
+
+text: hace como si estuvieramos seleccionando texto
+
+grab: hace como si estuvieras agarrando 
+
+auto: cambia el cursor segun lo q el elemento peude hacer
+
+not-allowed: nos muestra q algo no esta permitido
+
+zoom-in: nos muestra como si lo pudiesemos acercar
+zoom-out: nos muestra como si pudiesemos alejar
+move: nos muestra como si lo pudieramos mover
+
+*/
+.cursor-container{
+    width: 80vw;
+    height: 200px;
+    background-color: purple;
+    margin: 1cm;
+    cursor: pointer;
+}
+.cursor-container:active{
+    cursor: progress;
+}
+
+/* COLORES */
