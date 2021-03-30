@@ -1,0 +1,133 @@
+/* Responsive web design
+Nos permite adaptar un sitio web a diferentes
+ dispositivos con resoluciones diferentes
+
+mobile first: nos permite adaptar un sitio para dispositivos pequeños
+a dispositivos mayores
+nos permite mostrar una pagina como prioridad del buscador
+
+para trabajar con mobile first usamos media queries
+
+FLEXBOX
+
+flexbox: cajas flexibles, es una nueva 
+forma de maquetar mas practica y flexible
+
+en flexbox tenemos el
+
+main-axis: es el eje X, empieza desde la izquierda hasta
+el punto maximo de la derecha
+
+cross-axis: es el eje Y, empieza desde arriba
+y termina en el punto maximo de abajo
+
+los que contienen son coordenadas o direcciones
+
+flex: hace q el contenido  se divida y se adapte al 100% del container
+
+flex direction: nos permite modificar la direccion en la cual se
+ordenaran los elementos
+
+column: los ordena por columnas
+column-reverse: los ordena por columnas pero invierte el orden de los
+elementos
+
+row: los ordena en filas
+row-reverse: lor ordena en filas, pero invierte el orden de los elementos
+
+flex-wrap: hace respetar el tamaño de los elementos
+
+flex-flow: es un shorthand de las propiedades anteriores
+
+justity-content: nos ayuda a posicionar las cajas
+
+center: centra el contenido
+
+space-around: los centra pero con espacio entre cajas
+
+space-between: le da un espacio entre cajas, las posiciona a los border del
+container
+
+align-items: nos permite posicionar lso elementos de un contenedor
+
+align-content: usamos esta propiedad cuando hay varias lineas
+y respeta el margin y padding establecidos
+
+flex-start: nos lo posiciona al principio del contenedor
+respetando su tamaño
+
+center: nos posiciona los elementos en el centro del contenedor
+
+flex-end: nos posiciona los elementos al final del contenedor
+
+strecth: es la q esta por defecto, estira los elementos hasta ocupar
+todo el container, si su tamaño no esta definido
+
+el margin en las propiedades flex cuando esta usada se comporta
+muy diferentemente
+
+si establecemos el margin de un lado como auto posicionara la caja
+del lado contrario
+
+*/
+/* Flex items */
+/* 
+
+Son cajas flexibles q estan dentro de los flex box
+
+tenemos las propiedades
+
+flex-grow: el espacio sobreante lo reparte entre todas las cajas
+flex-shrink: indica cuanto espacio debe ceder, cuando se encoje
+la pantalla
+flex-basis: es lo mismo q width pero mas priorizado
+flex: es un shorthand de lo anterior
+order: es como el z index, pero en el eje que apunta el main axis,
+osea X
+
+*/
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.flexbox-container__section{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content:flex-start;
+    height: 700px;
+    background-color: darkred;
+}
+.flexbox-container__section-div--one{
+    background-color: yellow;
+    border: 3px solid black;
+    flex: 1 2 300px;
+    height: 200px;
+    text-align: center;
+    order: 1;
+}
+.flexbox-container__section-div{
+    background-color: coral;
+    border: 3px solid black;
+    text-align: center;
+    flex: 1 1 200px;
+    height: 200px;
+        
+}
+.flexbox-container__section-div--five{
+    background-color: red;
+    border: 3px solid black;
+    width: 200px;
+    height: 200px;
+    
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* GRID */
+
+
+
+

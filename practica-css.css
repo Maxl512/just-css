@@ -663,3 +663,52 @@ move: nos muestra como si lo pudieramos mover
 }
 
 /* COLORES */
+
+/* los colores primarios en programacion son 
+
+verde rojo y azul
+
+Podemos establecer colores de diferentes formas
+
+color name: llamandolos por su nombre
+
+hexadecimal: se usa un # antes del valor
+
+1: el valor minimo
+2
+3
+4
+5
+6
+7
+8
+9
+10
+a
+b
+c
+d
+e
+f : el valor maximo
+
+#11223344
+#11  22  33  44
+ R    G   B   A
+
+rgb: mezclamos los colres segun la cantidad q le indiquemos
+va desde 0 a 255
+
+rgba:
+
+*/
+
+.color-container{
+    background-color: #55aaffaa;
+    width: 80vw;
+    height: 150px;
+    margin: 0% auto;
+}
+
+
+
+
