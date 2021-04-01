@@ -550,8 +550,405 @@ actualmente es recomendado usar mobile first
 */
 
 
-.responsive{
-    background-color: #054;
+
+
+
+@media screen and (min-width:0px) and (max-width:400px){
+    .responsive{
+        display: flex;
+        flex-direction: column;
+    
+        height: 100vh;
+    }
+    .responsive-header, .responsive-main, .responsive-aside, .responsive-footer{
+        padding: 20px;
+    }
+    .responsive-header{
+        flex-basis: 15vh;
+        background-color: blue;
+    }
+    .responsive-aside{
+        background-color: green;
+        flex-basis: 20vh;
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+    .responsive-main{
+        flex-basis: 30vh;
+        flex-grow: 2;
+        flex-shrink: 0;
+        background-color: yellow;
+    }
+    .responsive-footer{
+        flex-basis: 10vh;
+        flex-grow: 2;
+        flex-shrink: 0;
+        background-color: red;
+    }
 }
+@media screen and (min-width:400px) and (max-width:900px){
+    .responsive{
+        display: flex;
+        flex-direction: column;
+    
+        height: 100vh;
+    }
+    .responsive-header, .responsive-main, .responsive-aside, .responsive-footer{
+        padding: 20px;
+    }
+    .responsive-header{
+        flex-basis: 15vh;
+        background-color: blue;
+    }
+    .responsive-aside{
+        background-color: green;
+        flex-basis: 20vh;
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+    .responsive-main{
+        flex-basis: 30vh;
+        flex-grow: 2;
+        flex-shrink: 0;
+        background-color: yellow;
+    }
+    .responsive-footer{
+        flex-basis: 10vh;
+        flex-grow: 2;
+        flex-shrink: 0;
+        background-color: red;
+    }
+}
+
+@media screen and (min-width:900px) and (max-width:1600px){
+    .responsive{
+        display: grid;
+    
+        grid-template-areas: 
+        "header header header header"
+        "aside main main main"
+        "aside main main main"
+        "aside main main main"
+        "aside main main main"
+        "aside main main main"
+        "footer footer footer footer";
+    
+        grid-template-rows: repeat(auto-fill, 1fr);
+        height: 100vh;
+    }
+    .responsive-header, .responsive-main, .responsive-aside, .responsive-footer{
+        padding: 20px;
+    }
+    .responsive-header{
+        display: flex;
+        flex-direction: row;
+        padding: 2em;
+
+        background-origin: #888;
+        grid-area: header;
+    }
+    .responsive-header > h1{
+        flex-basis: 60vw;
+        flex-grow: 2;
+        flex-shrink: 0;
+
+        justify-self: center;
+        align-self: center;
+    }
+    .responsive-header > nav{
+        flex-basis: 30vw;
+        flex-grow: 1;
+        flex-shrink: 0;
+
+        display: inline-block;
+        align-self: center;
+    }
+    .responsive-aside{
+        grid-area: aside;
+        background-color: #333;
+    }
+    .responsive-main{
+        grid-area: main;
+        flex-grow: 2;
+        background-color: #666;
+    }
+    .responsive-footer{
+        grid-area: footer;
+        background-color: #aaa;
+    }
+}
+
+/* TRANSITIONS */
+
+/* Nos muestra los frames de un estado a otro segun el tiempo
+y forma q le indiquemos,muestra el progreso de un cambio 
+
+para llamarle necesitamos asignarle minimos dos propiedades
+
+transition-property = property - all - none
+nos permite decidir q propiedad la transicion modificara
+
+transition-duration: duration ( s )
+nos permite decidir cuanto tiempo durara esta transicion
+
+transition-delay: nos permite establecer el tiempo q se debe esperar
+para q la transicion se efectue
+
+transition-timing: nos permite establecer la transicion del tiempo
+
+tenemos
+
+linear: los cambios se ve a la misma velocidad
+ease: empieza muy rapido y termina despacito
+ease-in: empieza lento y termina rapido
+ease-out: empieza rapido y termina lento
+ease-in-out: empíeza rapido luego lento luego rapido
+step start: lo hace instantaneo
+step end: lo hace cuando el tiempo se acaba
+
+*/
+
+.transition-container{
+    background-color: #111;
+}
+.transition-container:hover div{
+    left: 80%;
+    background-color: grey;
+}
+.transition-container__div{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    margin-top: 5%;
+    left: 5%;
+}
+.transition-container__div:nth-child(1) {
+    transition-property:left;
+    transition-duration: 4s;
+    transition-timing-function: linear ;
+}
+.transition-container__div:nth-child(2) {
+    transition-property:left;
+    transition-duration: 4s;
+    transition-timing-function: ease ;
+}
+.transition-container__div:nth-child(3) {
+    transition-property:left;
+    transition-duration: 4s;
+    transition-timing-function: ease-in ;
+}
+.transition-container__div:nth-child(4) {
+    transition-property:left;
+    transition-duration: 4s;
+    transition-timing-function: ease-out ;
+}
+.transition-container__div:nth-child(5) {
+    transition-property:left;
+    transition-duration: 4s;
+    transition-timing-function: ease-in-out ;
+}
+.transition-container__div:nth-child(6) {
+    transition-property:left;
+    transition-duration: 4s;
+    transition-timing-function: step-start;
+}
+.transition-container__div:nth-child(7){
+    transition-property:left;
+    transition-duration: 4s;
+    transition-timing-function: step-end ;
+}
+
+/* Animations */
+
+/* Es lo mismo q una transicion solo q esta requieren unas propiedades
+llamadas
+
+@Keyframes
+
+podemos definir como se comportara una animacion con
+from y to
+
+asi como tambien con porcentajes
+
+para añadirle una animacion a un elemento usamos la propiedad
+
+animation-name: nombre de la animacion
+
+y luego especificar cuanto tiempo durara
+
+animation-duration: duration
+
+tambien tenemos
+
+animation-timing-function: funciona igual q en transition-timing-function
+
+tambien tenemos
+
+animation-iteration-count: nos permite especificar cuantas veces se repetira
+la animacion
+
+tambien tenemos 
+
+animation-direction: nos permite cambiar la direccion de la animacion
+
+normal | reverse | alternate | alternate-reverse
+normal   al reves   alterna    alterna pero empieza alreves
+
+tambien tenemos
+
+animation-fill-mode
+
+backward: se queda como quedo en la primera instancia   
+forwards: lo mismo pero en la ultima instancia
+both: arranca con el valor del primer instancia y termina con el
+de la ultima
+
+*/
+
+.animation-container{
+    background-color: grey;
+    padding: 1%;
+}
+.animation-container__div{
+    width: 200px;
+    height: 200px;
+    animation-name: moving;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    position: relative;
+    background-color: white;
+}
+@keyframes moving {
+
+    0%{
+        position: relative;
+        left: 0; 
+        background-color: white;
+    }
+    50%{
+        background-color: inherit;
+    }
+    100%{
+        position: relative;
+        left: 80%;
+        background-color: black;
+    }
+
+}
+/* TRANSFORM */
+/* es una propiedad nos permite transformar al objeto
+las transformaciones reciben funciones
+
+tenemos
+translateX(): nos mueve el objeto en el eje horizontal
+translateY(): nos mueve el objeto en el eje vertical
+
+translate(x, y) un shorthand
+
+scale(); es un shothand de scaleX(); y scaleY();
+nos permite modificar el tamaño del objeto
+se multiplica el tamaño definido por el valor q introduzcamos
+
+skew(); lo que hace es voltearlo en su eje segun los grados q indiquemos
+"deg"
+
+
+a transform podemos darle las funcinoes q queramos
+
+
+*/
+
+.transform-container{
+    background-color: black;
+    padding: 5em;
+}
+.transform-container__div{
+    width: 200px;
+    height: 200px;
+    background-color: grey;
+    transform: translate(100px ,200px) scale(.7) ;
+}
+/* tambien tenemos clip-path 
+el cual es un generador de formas
+*/
+
+/* BACKGROUND */
+/* 
+
+faltaron propiedades de background por explicar
+
+background-image: url();
+nos permite añadirle una imagen al background
+
+background-size: nos permite modificar el tamaño del background
+podemos ponerle medidas, asi como contain y cover
+
+background-repeat: nos permite establecer si la imagen de
+ fondo se va a repetir
+
+
+background-clip- la recorta
+background-origin: nos permite decidir desde donde se mostra la imagen
+border-box la muestra desde los bordes
+padding-box, desde los padding
+content-box la muiestra desde el espaci q tien el contenido
+
+background-position, nos permite combinar dos posiciones
+para posicionar la imagen en el background
+
+background-attachment: nos permite elegir que contenedor utilizara como
+referencia la imagen
+
+esta scroll q es por defecto, y fixed, que nos opermite hacer
+q tome como punto de referencia el body completo
+
+*/
+.background-container{
+    background-color: grey;
+    background-image: url(casa.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
+    width: 100vw;
+    height: 100vh;
+    border: 15px solid black;
+    padding: 50px;
+}
+/* variables */
+/* 
+para definir variables se coloca
+
+:root
+
+luego dentro de root
+
+--name-of-variable
+
+y le agregamos el valor q queramos
+
+*/
+.variables-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: grey;
+    padding:5%;
+}
+.variables-container__div--one{
+    width: 20vw;
+    height: 30vh;
+    background-color: white;
+    margin-bottom: 5%;
+}
+.variables-container__div--two{
+    width: 20vw;
+    height: 30vh;
+    background-color: black;
+}
+
 
 
