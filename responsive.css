@@ -91,6 +91,10 @@ osea X
     padding:0;
     margin:0;
     box-sizing: border-box;
+    font-family: "Dancing Script";
+}
+.flexbox-container{
+    display: block;
 }
 .flexbox-container__section{
     display: flex;
@@ -106,7 +110,6 @@ osea X
     flex: 1 2 300px;
     height: 200px;
     text-align: center;
-    order: 1;
 }
 .flexbox-container__section-div{
     background-color: coral;
@@ -126,8 +129,429 @@ osea X
     flex-grow: 1;
 }
 
-/* GRID */
+/* flex-form */
 
 
+.flex-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #444;
+    margin: 100px 20px;
+    border: 10px solid black;
+    outline: 3px solid #0a4;
+}
+
+.flex-container__form{
+    min-width: 500px;
+    flex: 1;
+    text-align: center;
+    padding: 50px;
+    order: 5;
+    
+}
+.flex-container__form-div{
+    max-width: 100%;
+    margin: auto;
+}
+
+.flex-container__form-div-input{
+    min-width: 100%;
+    padding: 7px;
+    margin: 7px 0px;
+    border:none;
+    border-bottom:3px solid #2b6;
+    background-color: #444;
+    color: white;
+
+    border-top-right-radius: 5px;
+}
+.flex-container__form-div-input:hover{
+    background-color: #555;
+}
+.flex-container__form-div-input:focus{
+    background: linear-gradient(to top, transparent, #222);
+    outline: none;
+    border-bottom:3px solid #2e6;
+}
+.flex-container__form-div-textarea{
+    min-width:100%;
+    padding: 7px;
+    margin: 7px 0px;
+    min-height: 150px;
+    border:none;
+    border-bottom:3px solid #2b6;
+    background-color: #444;
+    resize: none;
+    color: white;
+    
+    border-top-right-radius: 5px;
+}
+.flex-container__form-div-textarea:hover{
+    background-color: #555;
+}
+.flex-container__form-div-textarea:focus{
+    background: linear-gradient(to top, transparent, #111);
+    outline: none;
+    border-bottom:3px solid #2f6;
+}
+.flex-container__form-div-input--submit{
+    width:100%;
+    padding: 10px;
+    margin: 7px 0px;
+    border: 1px solid #333;
+    background: linear-gradient(to top, #0a4, #084);;
+    color: white;
+}
+.flex-container__form-div-input--submit:hover{   
+    border: 1px solid #222;
+    background: linear-gradient(to top, #094, #074);
+}
+.flex-container__form-div-input--submit:focus{
+    outline: none;
+}
+.flex-container__form-div-input--submit:active{
+    outline: none;
+    border: 1px solid #111;
+    background: linear-gradient(to top, #094, #054);
+}
+
+.flex-container__image{ 
+    min-width: 300px;
+    padding: 20px;
+    margin: 40px;
+    flex: 1;
+    display: flex;  
+    background-color: #aaa;  
+    border-radius: 50%;
+    order: 2;
+}
+.flex-container__image-img{
+    width: 100%;
+    margin: auto;
+    object-fit: fill;
+    border-radius: 50%;
+}
+
+/* 
+
+linear-gradient: primer parametro la direccion en la q apuinta
+segundo el color desde el cual empieza
+tercero el color en que termina
+
+linear-gradient(to bottom, red, blue)
+va hacia abajo empezando en rojo y  termina en azul
+
+*/
+
+/* Grid */
+/* Es un estilo de layout, es un valor de la propiedad display
+nos permite trabajar a traves de grillas */
+
+/* cuando asginamos grid el elemento se comporta como bloque
+lo que cambia es lo de adentro
+
+cada elemento que este dentro del container es un item
+
+grid cell es la celda q se crea con el grid
+
+grid tracks son las columnas y filas
+
+grid area: es una parte del grid q definimos nosotros
+
+grid line: es una linea de columna o fila
+
+
+*/
+.grid-container{
+    border: 3px solid black;
+    margin: 15px;
+    display: grid;
+    
+    grid-template-columns: repeat(3, minmax(150px, 300px));
+    grid-template-rows: repeat(3, 300px);
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    
+    grid-auto-flow: dense;
+
+    grid-gap: 1em;
+    background-color: #1aa;
+
+    justify-content: space-around;
+    align-content: space-around;
+
+    justify-items: center;
+    align-items: center;
+
+}
+/* 
+grid-template-columns: nos permite establecer el tamaño de las
+celdas de la columnas del grid
+
+grid-template-rows: los mismo que el anteriori pero con las filas
+
+1 fr: se usa en template-columns, para decirle cuanto de lo sobrante se le
+dara a la columna
+
+grid-gap: nos permite establecer la separacion entre celdas
+es un shorthand de
+
+grid-row-gap separa solo las filas
+grid-column-gap separa solo las columnas
+
+*/
+
+/* Grid implicito y explicito */
+
+/* Grid implicito
+
+nos permite modificar las cualidades de las celdas sobrantes
+
+grid-auto-rows: nos permite establecer el tamaño de las filas de esas
+celdas sobrantes
+
+grid-auto-columns: igual q el anterior pero con columnas
+
+grid-auto-flow: nos permite establecer en que posicion las nuevas celdas
+se ordenaran
+
+grid-template-columns: repeat(times, size of columns)
+
+es una abreviacion para utilizar mejor esta propiedad
+
+*/
+
+/* Grid dinamico 
+
+
+minmax:nos permite establecer lo minimo q medira y lo maximo
+
+auto-fill: genera la cantidad de columnas q pueda, 
+q cumplan con las propiedades, sigue creando aun si todas las
+especificadas ya ocuparon su maximo lugar
+
+auto-fit: genera las columnas para llenar el tamaño del contenedor
+
+
+*/
+
+.grid-item{
+    background-color: #074;
+    border: 2px solid #000;
+    padding:50px;
+    font-size: 3em;
+    text-align: center;
+
+}
+
+/* :nth-child(index)
+nos permite seleccionar el elemento hijo de algo segun su posicion
+
+*/
+
+/* alineacion y control de flujo
+
+la alineacion es dentro de cada celda y no la alineacion total del
+flex container, cada celda seria un flex container
+estas dos propiedades hacen q las celdas solo usen lo necesario
+
+justify-items: 
+esto nos lo alinea horizontalmente
+
+start: nos lo posiciona al principio de la celda
+center: nos lo posiciona en el centro de la celda
+end: nos lo posiciona al final de la celda
+
+align-items:nos lo alinea verticalmente
+start center end
+
+justify-content
+align-content
+
+funciona igual que las anteriores solo que tienen 3 valores mas
+
+space-around space-between space-evenly
+
+
+ITEMS
+
+aling-self: funciona igual sol que modifica un item en especifico
+justify-self: funciona igual sol que modifica un item en especifico
+
+place-self: align-self justify-self;
+
+
+*/
+
+.grid-item:nth-child(9){
+    align-self: end;
+    justify-self: end;
+}
+.grid-item:nth-child(7){
+    justify-self: start;
+    align-self: end;
+}
+.grid-item:nth-child(8){
+    justify-self: center;
+    align-self: start;
+}
+.grid-item:nth-child(6){
+    justify-self: center;
+    align-self: center;
+}
+.grid-item:nth-child(4){
+    justify-self: center;
+    align-self: center;
+}
+.grid-item:nth-child(1){
+    justify-self: start;
+    align-self: start;
+}
+.grid-item:nth-child(3){
+    justify-self: end;
+    align-self: start;
+}
+
+
+
+/* Gallery */
+
+.gallery{
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(150px, 200px));
+    
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+    
+    grid-gap: 1em;
+
+    margin: 1em;
+    padding: 1em;
+
+    background-color: white;
+}
+.gallery__image{
+    background: linear-gradient(to top, #a00, #00a);
+    text-align: center;
+    font-size: 3em;
+    line-height: 200px;
+    font-weight: 1000;
+}
+
+.gallery__image:first-child{
+    grid-column: span 2;
+}
+.gallery__image:nth-child(3){
+    grid-row: span 2;
+}
+.gallery__image:nth-child(11){
+    grid-column: span 2;
+}
+.gallery__image:nth-child(13){
+    grid-column: span 2;
+}
+.gallery__image:nth-child(6){
+    grid-row: span 2;
+}
+
+
+/* GRID AREA */
+/* 
+es un conjunto consecutivo de celda, tambien puede estar en 
+cualquier lado, minimo para q sea un area teien q tener dos celdas
+
+*/
+
+
+.grid{
+    background-color: #000;
+    display: grid;
+
+    grid-template-areas: 
+    "header header header"
+    "aside main main"
+    "aside main main"
+    "aside main main"
+    "footer footer footer";
+
+    grid-template-rows: repeat(auto-fill, 1fr);
+    height: 100vh;
+    border: 5px solid black;
+}
+.grid-container-item{
+    padding: 1em;
+}
+.grid-header{
+    background-color: #444;
+    grid-area: header;
+}
+.grid-main{
+    background-color: #777;
+    grid-area: main;
+}
+.grid-aside{
+    background-color: #999;
+    grid-area: aside;
+}
+.grid-footer{
+    background-color: #333;
+    grid-area: footer;
+}
+
+/* Responsive  Design */
+
+/* 
+Es una tecnica para daptar el contenido de una apgina web
+a distintas resoluciones con el fin de que se vea bien
+
+
+trabaja con estructuras flexibles y media queries
+
+los media querias se usan para aplicar diferentes etilos dependiendo
+de la resoulucion del dispositivo, son condicionales que
+utilizan
+
+ancho y alto de la ventana grafica
+ancho y alto del dispositivo
+orientacion(tablet/tlf modo horizontal o vertical)
+resolucion
+
+all- apto para todso los dispositivos
+
+print - destinado a material impreso y visualizacion de documentos
+en una pantalla en modo de viste previa de impresion
+
+screen-- destinado a las pantallas
+
+speech- destinado a sintetizadores de voz
+
+
+utiliza los operadores AND | OR
+
+orientacion : landscape y portrait
+
+en responsive design tenemos dos metodlogias
+
+mobile first- primero crear todo a partir de medidas de mobile
+y leug o q se adapte a dispositives mas grandes
+
+desktop first: hacer una web para escritorio y luego adaptarl oa dispositivos
+mas pequeños
+
+content-first: se estructura es el contenido y luego se decide
+
+actualmente es recomendado usar mobile first
+
+
+*/
+
+
+.responsive{
+    background-color: #054;
+}
 
 
