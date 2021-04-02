@@ -931,7 +931,18 @@ luego dentro de root
 
 y le agregamos el valor q queramos
 
+luego para poner la variable dentro de una propiedad
+
+utilizamos
+
+var(name-of-variable)
+
+las variables en css tambien tiene scope
+
 */
+:root{
+    --red: red;
+}
 .variables-container{
     width: 100vw;
     height: 100vh;
@@ -941,7 +952,7 @@ y le agregamos el valor q queramos
 .variables-container__div--one{
     width: 20vw;
     height: 30vh;
-    background-color: white;
+    background-color: var(--red);
     margin-bottom: 5%;
 }
 .variables-container__div--two{
@@ -950,5 +961,5 @@ y le agregamos el valor q queramos
     background-color: black;
 }
 
-
+/* FILTER */
 
